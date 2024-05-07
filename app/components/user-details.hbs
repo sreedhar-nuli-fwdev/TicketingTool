@@ -2,30 +2,18 @@
   <NavBar></NavBar>
 
   <div class="row mt-4">
-    {{!-- Left column for profile picture --}}
-    <div class="col-md-4">
-      <div class="text-center">
-        <img src="{{@user.profile_pic}}" alt="Profile Picture" style="max-height: 200px; max-width: 200px;">
-      </div>
-    </div>
 
     {{!-- Right column for agent information --}}
     <div class="col-md-8">
       <dl class="row">
-        <dt class="col-sm-4 fw-bold">Agent Name:</dt>
+        <dt class="col-sm-4 fw-bold">Name:</dt>
         <dd class="col-sm-8">{{@user.name}}</dd>
 
         <dt class="col-sm-4 fw-bold">Email:</dt>
         <dd class="col-sm-8">{{@user.email}}</dd>
 
         <dt class="col-sm-4 fw-bold">Account Type:</dt>
-        <dd class="col-sm-8">
-          {{#if @user.type}}
-            {{@user.type}}
-          {{else}}
-            Client Account
-          {{/if}}
-        </dd>
+        <dd class="col-sm-8">{{@user.account_type}}</dd>
       </dl>
     </div>
 

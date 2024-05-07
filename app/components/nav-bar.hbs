@@ -37,7 +37,7 @@
       {{!-- Language Dropdown Menu --}}
       <div class="dropdown">
         <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-expanded="false">
-          <span style="color: white;">Select Language</span>
+          <span style="color: white;">{{this.translation.t.select_language}}</span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
           <li><a class="dropdown-item" href="#" onclick={{action "changeLanguage" "en"}}><span style="color: white;">English</span></a></li>
@@ -53,6 +53,10 @@
         {{#if this.auth.isLoggedInUser}}
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUserProfile">
             <li><a class="dropdown-item" href="/user-details">{{this.translation.t.profile}}</a></li>
+            {{#if this.auth.isAdminUser}}
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/add-agent">{{this.translation.t.add_agent}}</a></li>
+            {{/if}}
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/login">{{this.translation.t.sign_out}}</a></li>
           </ul>
