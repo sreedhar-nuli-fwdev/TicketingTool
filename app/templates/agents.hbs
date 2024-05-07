@@ -1,0 +1,8 @@
+<NavBar></NavBar>
+<div class="agents">
+    <div class="row">
+    {{#each @model as |agent|}}
+      <Agents @agent={{agent}} />
+    {{/each}}
+    </div>
+</div>

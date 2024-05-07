@@ -1,0 +1,78 @@
+{{!-- app/templates/components/add-agent-form.hbs --}}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* Custom styles for password strength indicators */
+    .password-strength-indicator {
+      height: 5px;
+      margin-top: 5px;
+    }
+
+    .custom-width {
+      width: 1000px; /* Adjust the width value as needed */
+    }
+
+    .custom-height {
+      height: 300px;
+    }
+    .strength-weak {
+      background-color: #dc3545;
+    }
+
+    .strength-medium {
+      background-color: #ffc107;
+    }
+
+    .strength-strong {
+      background-color: #28a745;
+    }
+
+    /* Reduce margin between header and body */
+    .form-label {
+      margin-bottom: 5px; /* Adjust the margin value as needed */
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <form {{on "submit" this.onSubmit}}>
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" name="name" value="" class="form-control custom-width" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="text" name="email" value="" class="form-control custom-width" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">User Name</label>
+      <input type="text" name="username" value="" class="form-control custom-width" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Team</label>
+      <input type="text" name="team" value="" class="form-control custom-width" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Phone Number</label>
+      <input type="text" name="phonenumber" value="" class="form-control custom-width" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="attachmentInput" class="form-label">Upload Photo</label>
+      <input type="file" name="attachment" class="form-control" id="attachmentInput" onchange={{action "handleFileSelect"}}>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary float-end col-md-3">Submit</button>
+    </div>
+
+  </form>
+</div>
+</body>
+
+</html>

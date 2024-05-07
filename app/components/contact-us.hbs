@@ -1,0 +1,26 @@
+<NavBar/>
+<div class="container">
+  <h2>Contact Us</h2>
+  <p>If you have any questions or concerns, please feel free to contact us using the form below.</p>
+
+  <form {{on "submit" this.submitContactForm}}>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" name="name" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" name="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
+    </div>
+    <div class="row">
+      <div class="col-10"></div>
+      <div class="col-2 text-end">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

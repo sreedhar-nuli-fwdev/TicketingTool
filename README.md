@@ -54,3 +54,22 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+## Features availale in this application
+
+1. Admin - He has below work flows available,
+  1. Create tickets
+  2. Update tickets
+  3. Delete tickets
+  4. Has Option to create new Agent user
+  5. …
+
+2. Agent
+  1. Can’t Create ticket
+  2. Update tickets
+  3. Can’t delete ticket
+
+3. Client
+  1. Create ticket
+  2. Update tickets
+  3. Can’t delete ticket

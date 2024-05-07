@@ -1,0 +1,7 @@
+# translations/en.yml
+en:
+  tickets:
+    title: "Title"
+    description: "Description"
+    comments: "Comments"
+    # Define translations for other content

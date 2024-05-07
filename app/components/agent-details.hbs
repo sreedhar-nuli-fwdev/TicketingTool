@@ -1,0 +1,39 @@
+<div class="container">
+  <NavBar></NavBar>
+
+  <div class="row mt-4">
+    {{!-- Left column for profile picture --}}
+    <div class="col-md-4">
+      <div class="text-center">
+        <img src="{{@agent.profile_pic}}" alt="Profile Picture" style="max-height: 200px; max-width: 200px;">
+      </div>
+    </div>
+
+    {{!-- Right column for agent information --}}
+    <div class="col-md-8">
+      <dl class="row">
+        <dt class="col-sm-4 fw-bold">Agent Name:</dt>
+        <dd class="col-sm-8">{{@agent.name}}</dd>
+
+        <dt class="col-sm-4 fw-bold">Email:</dt>
+        <dd class="col-sm-8">{{@agent.email}}</dd>
+
+        <dt class="col-sm-4 fw-bold">Alias:</dt>
+        <dd class="col-sm-8">{{@agent.user_name}}</dd>
+
+        <dt class="col-sm-4 fw-bold">Phone Number:</dt>
+        <dd class="col-sm-8">{{@agent.phone_number}}</dd>
+
+        <dt class="col-sm-4 fw-bold">Team:</dt>
+        <dd class="col-sm-8">{{@agent.team}}</dd>
+      </dl>
+    </div>
+
+    {{!-- Delete button --}}
+    <div class="position-relative col-md-12 mt-4">
+      <div class="position-absolute top-0 end-0">
+        <button class="btn btn-danger" type="button" {{action "deleteAgent" @agent on="click" }}>Delete Agent</button>
+      </div>
+    </div>
+  </div>
+</div>

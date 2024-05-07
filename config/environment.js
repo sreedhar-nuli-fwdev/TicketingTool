@@ -18,12 +18,21 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
+
+    i18n: {
+      defaultLocale: 'te', // Set the default locale
+      autoPolyfill: true, // Automatically polyfill missing translations
+      path: {
+        // Define the path where your translation files are stored
+        translations: 'locales',
+      },
+    },
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }

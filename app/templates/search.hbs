@@ -1,0 +1,9 @@
+<NavBar/>
+
+<div class="tickets">
+  <div class="row">
+    {{#each @model as |ticket|}}
+      <Tickets @ticket={{ticket}} />
+    {{/each}}
+  </div>
+</div>

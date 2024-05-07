@@ -1,0 +1,67 @@
+<header class="p-3 mb-3 border-bottom">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between">
+      {{!-- Logo --}}
+      <div>
+        <a class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <img class="rounded-circle" src="http://localhost:4200/freshworksLogo.png" alt="Logo" width="40" height="32">
+        </a>
+      </div>
+
+      {{!-- Navigation Links --}}
+      {{#if this.auth.isLoggedInUser}}
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/tickets" class="nav-link px-2 link-body-emphasis">{{this.translation.t.all_tickets}}</a></li>
+          <li><a href="/my-tickets" class="nav-link px-2 link-body-emphasis">{{this.translation.t.my_tickets}}</a></li>
+          <li><a href="/create" class="nav-link px-2 link-body-emphasis">{{this.translation.t.create_ticket}}</a></li>
+          {{#if this.auth.isAdminUser}}
+            <li><a href="/agents" class="nav-link px-2 link-body-emphasis">{{this.translation.t.agents}}</a></li>
+          {{/if}}
+        </ul>
+      {{else}}
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/login" class="nav-link px-2 link-body-emphasis">{{this.translation.t.freshservice}}</a></li>
+          <li><a href="/about" class="nav-link px-2 link-body-emphasis">{{this.translation.t.about}}</a></li>
+          <li><a href="/contact-us" class="nav-link px-2 link-body-emphasis">{{this.translation.t.contact_us}}</a></li>
+        </ul>
+      {{/if}}
+
+      {{!-- Search Bar --}}
+      {{#if this.auth.isLoggedInUser}}
+        <div class="d-flex align-items-center">
+          <input type="text" class="form-control me-2" placeholder="Search tickets" aria-label="Search" {{on "keydown" this.handleKeyDown}} value={{this.searchKey}}>
+          <button class="btn btn-outline-dark" type="button" {{action "performSearch"}}>Search</button>
+        </div>
+      {{/if}}
+
+      {{!-- Language Dropdown Menu --}}
+      <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownLanguage" data-bs-toggle="dropdown" aria-expanded="false">
+          <span style="color: white;">Select Language</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownLanguage">
+          <li><a class="dropdown-item" href="#" onclick={{action "changeLanguage" "en"}}><span style="color: white;">English</span></a></li>
+          <li><a class="dropdown-item" href="#" onclick={{action "changeLanguage" "te"}}><span style="color: white;">Telugu</span></a></li>
+        </ul>
+      </div>
+
+      {{!-- User Profile Dropdown Menu --}}
+      <div class="dropdown">
+        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" id="dropdownUserProfile" data-bs-toggle="dropdown">
+          <img class="rounded-circle" src="http://localhost:4200/UserProfilePic.webp" alt="Profile" width="40" height="32">
+        </a>
+        {{#if this.auth.isLoggedInUser}}
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUserProfile">
+            <li><a class="dropdown-item" href="/user-details">{{this.translation.t.profile}}</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/login">{{this.translation.t.sign_out}}</a></li>
+          </ul>
+        {{else}}
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUserProfile">
+            <li><a class="dropdown-item" href="/signup">{{this.translation.t.sign_up}}</a></li>
+          </ul>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</header>

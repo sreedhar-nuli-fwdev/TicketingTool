@@ -1,0 +1,47 @@
+<NavBar />
+<div class="container">
+  <div class="row mt-4">
+    <div class="col">
+      <dl class="row">
+        <dt class="col-sm-2 fw-bold">Issue:</dt>
+        <dd class="col-sm-10">{{@ticket.title}}</dd>
+
+        <dt class="col-sm-2 fw-bold">Description:</dt>
+        <dd class="col-sm-10">{{@ticket.description}}</dd>
+
+        <dt class="col-sm-2 fw-bold">Assigned:</dt>
+        <dd class="col-sm-10">{{@ticket.assigned_to_user}}</dd>
+
+        <dt class="col-sm-2 fw-bold">Status:</dt>
+        <dd class="col-sm-10">
+          <select class="form-select" id="statusSelect" {{on "change" this.handleStatusChange}}>
+            <option value="active">In Progress</option>
+            <option value="resolved">Resolved</option>
+            <option value="mitigated">Mitigated</option>
+            <option value="completed">Completed</option>
+          </select>
+        </dd>
+      </dl>
+
+      <div class="mt-4">
+        <h5>Comments</h5>
+        {{#each @ticket.comments as |comment|}}
+          <div class="card mb-2">
+            <div class="card-body">
+              <p class="card-text">{{comment.user}}: {{comment.content}}</p>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="newComment" name="newComment" value={{this.commentText}} placeholder="Enter your comment here" {{on "input" this.handleCommentInput}}>
+        </div>
+        <div class="col-sm-2">
+          <button type="button" class="btn btn-primary" {{action "onSubmit" @ticket @comment @status}} id="postComment">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
